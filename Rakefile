@@ -5,7 +5,8 @@ require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 require 'yard'
 require 'yard/rake/yardoc_task'
-require 'kitchen/rake_tasks'
+
+args = %i(spec make_bin_executable yard rubocop check_binstubs)
 
 YARD::Rake::YardocTask.new do |t|
   OTHER_PATHS = %w().freeze
@@ -36,10 +37,4 @@ task :check_binstubs do
   end
 end
 
-Kitchen::RakeTasks.new
-
-task integration: 'kitchen:all'
-
-task default: %i(make_bin_executable yard rubocop check_binstubs integration)
-
-task quick: %i(make_bin_executable yard rubocop check_binstubs)
+task default: args
