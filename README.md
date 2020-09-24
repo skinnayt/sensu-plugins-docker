@@ -13,6 +13,7 @@ This check supports docker versions >= 1.18. Check docker-engine API for more in
  * check-container.rb
  * check-container-logs.rb
  * check-docker-container.rb
+ * check-stopped-containers.rb
  * metrics-docker-container.rb
  * metrics-docker-stats.rb
  * metrics-docker-info.rb
