@@ -37,6 +37,7 @@
 
 require 'sensu-plugin/check/cli'
 require 'sensu-plugins-docker/client_helpers'
+require 'json'
 
 #
 # Check Docker Container
@@ -59,6 +60,13 @@ class CheckDockerContainers < Sensu::Plugin::Check::CLI
          description: 'Regex of container names to exclude from query',
          default: nil
 
+  option :nonzero,
+         short: '-n',
+         long: '--nonzero',
+         description: 'Checky only for containers with nonzero exit code',
+         boolean: true,
+         default: false
+
   # Setup variables
   #
   def initialize
@@ -73,10 +81,12 @@ class CheckDockerContainers < Sensu::Plugin::Check::CLI
     response = @client.call(path, false)
 
     body = parse_json(response)
+    puts puts JSON.pretty_generate(body)
     body.each do |container|
       next unless container['State'] != 'running'
       container_names = container['Names']
       if check_contains(container_names, config[:include]) && !check_contains(container_names, config[:exclude])
+        next if config[:nonzero] && check_contains([container['Status']], 'Exited \(0\)')
         @crit_cont << "#{container_names} is in status: #{container['Status']}"
       end
     end

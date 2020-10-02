@@ -5,6 +5,10 @@ This CHANGELOG follows the format listed at [Our CHANGELOG Guidelines ](https://
 Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+### Added
+- check-stopped-containers.rb: -n (--nonzero) New parameter to check only for containers with nonzero exit code. Default is `false`
+- README.md - Added info how to test development locally
+
 ### Fixed
 - Cought up with Changelog
 
