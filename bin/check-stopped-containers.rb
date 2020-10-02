@@ -37,7 +37,6 @@
 
 require 'sensu-plugin/check/cli'
 require 'sensu-plugins-docker/client_helpers'
-require 'json'
 
 #
 # Check Docker Container
@@ -81,7 +80,6 @@ class CheckDockerContainers < Sensu::Plugin::Check::CLI
     response = @client.call(path, false)
 
     body = parse_json(response)
-    puts puts JSON.pretty_generate(body)
     body.each do |container|
       next unless container['State'] != 'running'
       container_names = container['Names']
