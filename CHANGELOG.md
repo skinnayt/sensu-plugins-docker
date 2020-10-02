@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Our CHANGELOG Guidelines ](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md).
 Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
-## [Unreleased]
+## [4.1.5] - 2020-10-02
 ### Added
 - check-stopped-containers.rb: -n (--nonzero) New parameter to check only for containers with nonzero exit code. Default is `false`
 - README.md - Added info how to test development locally
