@@ -5,6 +5,16 @@ This CHANGELOG follows the format listed at [Our CHANGELOG Guidelines ](https://
 Which is based on [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+### Fixed
+- Cought up with Changelog
+
+## [4.1.4] - 2020-09-24
+### Added
+- New check for stopped containers check-stopped-containers.rb
+
+## [4.0.0 - 4.1.3] 2020-09
+### Project forked by @VeselaHouba
+- Some modifications were not tracked in Changelog, dark ages.
 
 ### Breaking Change
 - Update `sensu-plugin` version from `2.x` to `'>= 2', '< 5'` for Sensu Go enablement.

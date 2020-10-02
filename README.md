@@ -18,6 +18,14 @@ This check supports docker versions >= 1.18. Check docker-engine API for more in
  * metrics-docker-stats.rb
  * metrics-docker-info.rb
 
+## Local development
+```
+docker run --rm -ti -v $(pwd)/:/opt/plugin -v /var/run/docker.sock:/var/run/docker.sock ruby:2.4.1 bash
+cd /opt/plugin
+gem install sensu-plugins-docker
+./bin/<check_name>.rb
+```
+
 ## Usage
 
 ### Default docker host
