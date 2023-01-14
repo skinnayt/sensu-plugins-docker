@@ -197,6 +197,7 @@ class DockerStatsMetrics < Sensu::Plugin::Metric::CLI::Graphite
   def blkio_stats(io_stats)
     stats_out = {}
     io_stats.each do |stats_type, stats_vals|
+      next if stats_vals.nil? || stats_vals.empty?
       stats_vals.each do |value|
         stats_out["#{stats_type}.#{value['op']}.#{value['major']}.#{value['minor']}"] = value['value']
       end
