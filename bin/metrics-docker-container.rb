@@ -99,6 +99,7 @@ class DockerContainerMetrics < Sensu::Plugin::Metric::CLI::Graphite
 
     containers.each do |container|
       path = Pathname(format(cgroup, container: container['Id']))
+      next unless path.exist?
       pids = path.readlines.map(&:to_i)
 
       container_name = if config[:friendly_names]
